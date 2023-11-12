@@ -1,15 +1,44 @@
 #include "../inc/shell.hpp"
 
-Lexer::Lexer(std::string text) {
-    _text = text;
-    _pos = -1;
+Position::Position(int i, int ln, int col, std::string fileName, std::string fileText) {
+    _i = i;
+    _ln = ln;
+    _col = col;
+    _fileName = fileName;
+    _fileText = fileText;
+}
+
+Position::Position() {
+    _i = -1;
+    _ln = 0;
+    _col = -1;
+}
+
+void Position::advance(char current_char) {
+    _i++;
+    _col++;
+
+    if (current_char == '\n') {
+        _col = 0;
+        _ln++;
+    }
+}
+
+Position Position::copy() {
+    return Position(_i, _ln, _col, _fileName, _fileText);
+}
+
+Lexer::Lexer(std::string fileName, std::string fileText) {
+    _text = fileText;
+    _fileName = fileName;
+    _pos = Position(-1, 0, -1, fileName, fileText);
     advance();
 }
 
 void Lexer::advance() {
-    _pos = _pos + 1;
-    if (_pos < (int)_text.size())
-        _current_char = _text[_pos];
+    _pos.advance(_current_char);
+    if (_pos._i < (int)_text.size())
+        _current_char = _text[_pos._i];
     else
         _current_char = '\0';
 }
@@ -74,6 +103,7 @@ void Lexer::make_tokens() {
                 }
                 else {
                     std::cerr << "Illegal Character used: '" << _current_char << "'\n";
+                    std::cerr << "In File: '" << _fileName << "', line " << (_pos._ln + 1) << "\n";
                     _tokens.clear();
                     return;
                     // add something to manage this

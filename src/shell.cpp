@@ -8,7 +8,7 @@ int main() {
         std::getline(std::cin, input);
 	    if (input[0] == 'q' && input[1] == '\0')
 		    break;
-        Lexer lexer = Lexer(input);
+        Lexer lexer = Lexer("<stdin>", input);
         lexer.make_tokens();
         lexer.print_tokens();
     }
