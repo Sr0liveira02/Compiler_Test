@@ -1,4 +1,4 @@
-#include "shell.hpp"
+#include "../inc/shell.hpp"
 
 int main() {
 
@@ -10,7 +10,6 @@ int main() {
 		    break;
         Lexer lexer = Lexer(input);
         lexer.make_tokens();
-        std::cout << "Cheguei aqui\n";
         lexer.print_tokens();
     }
     return 0;

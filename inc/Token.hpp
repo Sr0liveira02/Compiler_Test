@@ -14,7 +14,7 @@ class Token {
     TokenType _tokenType;
     std::string _value;
 
-    void toString();
+    std::string toString();
     private:
 };
 

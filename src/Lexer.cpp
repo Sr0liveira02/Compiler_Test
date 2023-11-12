@@ -1,4 +1,4 @@
-#include "shell.hpp"
+#include "../inc/shell.hpp"
 
 Lexer::Lexer(std::string text) {
     _text = text;
@@ -73,8 +73,9 @@ void Lexer::make_tokens() {
                     continue;;
                 }
                 else {
-                    std::cout << "Error: " << _current_char << "\n";
-                    advance();
+                    std::cerr << "Illegal Character used: '" << _current_char << "'\n";
+                    _tokens.clear();
+                    return;
                     // add something to manage this
                 }
         }
@@ -84,7 +85,6 @@ void Lexer::make_tokens() {
 void Lexer::print_tokens() {
     int max = _tokens.size();
     for (int i = 0; i < max; i++) {
-        _tokens[i].toString();
-        std::cout << "\n";
+        std::cout << _tokens[i].toString() << "\n";
     }
 }

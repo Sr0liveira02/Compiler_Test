@@ -1,4 +1,4 @@
-#include "shell.hpp"
+#include "../inc/shell.hpp"
 
 Token::Token(TokenType tokenType, std::string value) {
     _tokenType = tokenType;
@@ -10,7 +10,7 @@ Token::Token(TokenType tokenType, char value) {
     _value = value;
 }
 
-void Token::toString() {
+std::string Token::toString() {
     std::string type;
     switch(_tokenType) {
         case 0:
@@ -39,7 +39,7 @@ void Token::toString() {
             break;
     }
     if (this->_value[0] != '\0')
-        std::cout << "[" << type << ":" << _value << "]";
+        return "[" + type + ":" + _value + "]";
     else 
-        std::cout << "[" << type << "]";
+        return "[" + type + "]";
 }
