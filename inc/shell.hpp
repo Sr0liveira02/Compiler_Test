@@ -7,5 +7,7 @@
 
 #include "Token.hpp"
 #include "Lexer.hpp"
+#include "ParsingNode.hpp"
+#include "Parser.hpp"
 
 #endif

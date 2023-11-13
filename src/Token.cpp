@@ -10,32 +10,40 @@ Token::Token(TokenType tokenType, char value) {
     _value = value;
 }
 
+Token::Token() {
+    _tokenType = undifined;
+    _value = "-1";
+}
+
 std::string Token::toString() {
     std::string type;
     switch(_tokenType) {
-        case 0:
+        case t_int:
             type = "t_int";
             break;
-        case 1:
+        case t_float:
             type = "t_float";
             break;
-        case 2:
+        case t_plus:
             type = "t_plus";
             break;
-        case 3:
+        case t_minus:
             type = "t_minus";
             break;
-        case 4:
+        case t_mul:
             type = "t_mul";
             break;
-        case 5:
+        case t_div:
             type = "t_div";
             break;
-        case 6:
+        case t_lparen:
             type = "t_lparen";
             break;
-        case 7:
+        case t_rparen:
             type = "t_rparen";
+            break;
+        case unidifined:
+            type = "Erro!";
             break;
     }
     if (this->_value[0] != '\0')

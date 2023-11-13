@@ -7,7 +7,7 @@ OBJS 		= $(addprefix $(OBJ_PATH)/, $(addsuffix .o, $(basename $(SRCS))))
 INCLUDES	= inc/
 
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -I$(INCLUDES) -fsanitize=address -g
+CXXFLAGS	= -Wall -Wextra -Werror -I$(INCLUDES) -g
 RM			= rm -f
 
 all: $(NAME)
