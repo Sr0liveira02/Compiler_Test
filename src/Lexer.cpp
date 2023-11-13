@@ -48,7 +48,7 @@ Token Lexer::make_number() {
     bool dot = false;
 
     while (_current_char != '\n' &&
-         ((('0' < _current_char && _current_char < '9') ||
+         ((('0' <= _current_char && _current_char <= '9') ||
          _current_char == '.'))) {
 
         if (_current_char == '.')
@@ -97,7 +97,7 @@ void Lexer::make_tokens() {
                 advance();
                 break;
             default:
-                if('0' < _current_char && _current_char < '9') {
+                if('0' <= _current_char && _current_char <= '9') {
                     _tokens.push_back(make_number());
                     continue;;
                 }
