@@ -3,21 +3,8 @@
 
 #include <string>
 #include "Token.hpp"
+#include "Position.hpp"
 #include <vector>
-
-class Position {
-    public:
-    Position(int i, int ln, int col, std::string fileName, std::string fileText);
-    Position();
-    int _i;
-    int _ln;
-    int _col;
-    std::string _fileName;
-    std::string _fileText;
-    void advance(char currentChar);
-    Position copy();
-    private:
-};
 
 class Lexer {
     public:

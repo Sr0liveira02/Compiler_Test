@@ -18,7 +18,9 @@ Node* Parser::factor() {
     if (_currentToken._tokenType == t_float || _currentToken._tokenType == t_int) {
         Token token = _currentToken;
         if (!_n_e) {
-            std::cerr << "Syntax error!\n";
+            std::cerr << "Syntax error: lacks a binary operation here!\n";
+            std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
+            _currentToken._pos->write_error_here();
             exit(1);
         }
         _n_e = false;
@@ -36,7 +38,9 @@ Node* Parser::term() {
     while (_currentToken._tokenType == t_mul || _currentToken._tokenType == t_div) {
         Token opToken = _currentToken;
         if (_n_e) {
-            std::cerr << "Syntax error!\n";
+            std::cerr << "Syntax error: lacks a number here!\n";
+            std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
+            _currentToken._pos->write_error_here();
             exit(1);
         }
         _n_e = true;
@@ -56,7 +60,9 @@ Node* Parser::expr() {
     while (_currentToken._tokenType == t_plus || _currentToken._tokenType == t_minus) {
         Token opToken = _currentToken;
         if (_n_e) {
-            std::cerr << "Syntax error!\n";
+            std::cerr << "Syntax error: lacks a number here!\n";
+            std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
+            _currentToken._pos->write_error_here();
             exit(1);
         }
         _n_e = true;

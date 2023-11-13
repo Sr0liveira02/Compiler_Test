@@ -9,5 +9,6 @@
 #include "Lexer.hpp"
 #include "ParsingNode.hpp"
 #include "Parser.hpp"
+#include "Position.hpp"
 
 #endif

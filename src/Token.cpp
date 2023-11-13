@@ -1,13 +1,15 @@
 #include "../inc/shell.hpp"
 
-Token::Token(TokenType tokenType, std::string value) {
+Token::Token(TokenType tokenType, std::string value, Position* pos) {
     _tokenType = tokenType;
     _value = value;
+    _pos = pos;
 }
 
-Token::Token(TokenType tokenType, char value) {
+Token::Token(TokenType tokenType, char value, Position* pos) {
     _tokenType = tokenType;
     _value = value;
+    _pos = pos;
 }
 
 Token::Token() {
