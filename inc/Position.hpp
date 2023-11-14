@@ -14,7 +14,7 @@ class Position {
     std::string _fileText;
     void advance(char currentChar);
     Position* copy();
-    void write_error_here();
+    void write_error_here(int offset);
     private:
 };
 

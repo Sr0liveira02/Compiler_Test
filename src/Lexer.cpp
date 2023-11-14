@@ -76,7 +76,7 @@ void Lexer::make_tokens() {
                 else {
                     std::cerr << "Illegal Character used: '" << _current_char << "'\n";
                     std::cerr << "In File: '" << _fileName << "', line " << (_pos._ln + 1) << "\n";
-                    _pos.write_error_here();
+                    _pos.write_error_here(0);
                     exit(1);
                     // add something to manage this
                 }

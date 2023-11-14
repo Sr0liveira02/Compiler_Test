@@ -29,7 +29,7 @@ Position* Position::copy() {
     return pos;
 }
 
-void Position::write_error_here() {
+void Position::write_error_here(int offset) {
     int lastLine = _i - 1;
     char last = _fileText[lastLine];
     int nextLine = _i + 1;
@@ -48,7 +48,7 @@ void Position::write_error_here() {
         std::cout << _fileText[i];
     }
     std::cout << "\n";
-    for(int i = lastLine + 1; i <_i; i++) {
+    for(int i = lastLine + 1; i <_i + offset; i++) {
         std::cout << " ";
     }
     std::cout << "^\n";

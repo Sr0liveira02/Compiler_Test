@@ -26,7 +26,8 @@ Node* Parser::factor() {
         else {
             std::cerr << "Syntax error: Opened parentheses \"(\" and didnt close it\n";
             std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
-            _currentToken._pos->write_error_here();
+            _currentToken._pos->write_error_here(0);
+            exit(1);
         }
     }
     if (_currentToken._tokenType == t_minus) {
@@ -42,7 +43,7 @@ Node* Parser::factor() {
         if (!_n_e) {
             std::cerr << "Syntax error: lacks a binary operation here!\n";
             std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
-            _currentToken._pos->write_error_here();
+            _currentToken._pos->write_error_here(-2);
             exit(1);
         }
         _n_e = false;
@@ -62,7 +63,7 @@ Node* Parser::term() {
         if (_n_e) {
             std::cerr << "Syntax error: lacks a number here!\n";
             std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
-            _currentToken._pos->write_error_here();
+            _currentToken._pos->write_error_here(-1);
             exit(1);
         }
         _n_e = true;
@@ -84,7 +85,7 @@ Node* Parser::expr() {
         if (_n_e) {
             std::cerr << "Syntax error: lacks a number here!\n";
             std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
-            _currentToken._pos->write_error_here();
+            _currentToken._pos->write_error_here(-1);
             exit(1);
         }
         _n_e = true;
