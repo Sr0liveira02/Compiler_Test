@@ -14,8 +14,8 @@ int main() {
         // generate Tokens
         Lexer lexer = Lexer("<stdin>", input);
         lexer.make_tokens();
-        //lexer.print_tokens();
-        //printf("\n");
+        lexer.print_tokens();
+        printf("\n");
 
         // Generate Parsing Tree
         Parser parser = Parser(&lexer._tokens);

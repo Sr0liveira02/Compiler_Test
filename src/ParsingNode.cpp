@@ -36,13 +36,13 @@ Node::Node() {
 std::string Node::toString() {
     switch(_type) {
         case bo_plus:
-            return "(" + _lNode->toString() + " + " + _rNode->toString() + ")";
+            return "[" + _lNode->toString() + " + " + _rNode->toString() + "]";
         case bo_minus:
-            return "(" + _lNode->toString() + " - " + _rNode->toString() + ")";
+            return "[" + _lNode->toString() + " - " + _rNode->toString() + "]";
         case bo_mul:
-            return "(" + _lNode->toString() + " * " + _rNode->toString() + ")";
+            return "[" + _lNode->toString() + " * " + _rNode->toString() + "]";
         case bo_div:
-            return "(" + _lNode->toString() + " / " + _rNode->toString() + ")";
+            return "[" + _lNode->toString() + " / " + _rNode->toString() + "]";
         case n_float:
         case n_int:
             return _value;

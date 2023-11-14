@@ -15,8 +15,30 @@ void Parser::advance() {
 
 Node* Parser::factor() {
     // fazer os ifs antes e so depois dar o advance
+    Token token = _currentToken;
+    if (_currentToken._tokenType == t_lparen) {
+        advance();
+        Node* pointer = expr();
+        if (_currentToken._tokenType == t_rparen) {
+            advance();
+            return pointer;
+        }
+        else {
+            std::cerr << "Syntax error: Opened parentheses \"(\" and didnt close it\n";
+            std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
+            _currentToken._pos->write_error_here();
+        }
+    }
+    if (_currentToken._tokenType == t_minus) {
+            advance();
+            Node* positive = factor();
+            _n_e = false;
+            if (positive->_type == n_float)
+                return new Node(n_float, "-" + positive->_value);
+            if (positive->_type == n_int) 
+                return new Node(n_int, "-" + positive->_value);
+    }
     if (_currentToken._tokenType == t_float || _currentToken._tokenType == t_int) {
-        Token token = _currentToken;
         if (!_n_e) {
             std::cerr << "Syntax error: lacks a binary operation here!\n";
             std::cerr << "In File: '" << _currentToken._pos->_fileName << "', line " << (_currentToken._pos->_ln + 1) << "\n";
