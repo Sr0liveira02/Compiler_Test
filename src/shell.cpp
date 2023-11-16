@@ -1,7 +1,5 @@
 #include "../inc/shell.hpp"
 
-// Negative number although the guy could talk about it later
-
 int main() {
 
     while(true){
@@ -21,6 +19,11 @@ int main() {
         Parser parser = Parser(&lexer._tokens);
         Node *node = parser.parse();
         std::cout << node->toString() << "\n";
+
+        // Interpreting 
+        Interpreter inti = Interpreter();
+        Number* res = inti.visit(node);
+        std::cout << "= " << res->_number << "\n";
 
     }
     return 0;

@@ -11,3 +11,13 @@ make (with g++ installed)
 ./Shell
 
 and then just writing some math on the terminal and it will tell you in which order is apropriated one to do the math which will be helpfull once i write everything in asmembly
+
+For easier undestanding of my code i suggest you to read in this direction:
+Shell
+Position
+Token
+Lexer
+Node
+Parser
+Number
+Interpreter

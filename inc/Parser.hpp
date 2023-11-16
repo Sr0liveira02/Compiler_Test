@@ -20,6 +20,7 @@ class Parser {
     Node* factor();
     Node* term();
     Node* expr();
+    bool end;
     bool _n_e; // false means last was a number, true means last was a expression
 };
 

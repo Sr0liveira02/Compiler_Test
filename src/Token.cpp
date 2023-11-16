@@ -47,9 +47,12 @@ std::string Token::toString() {
         case unidifined:
             type = "Erro!";
             break;
+        case t_semicolon:
+            type = "End command;";
+            break;
     }
     if (this->_value[0] != '\0')
-        return "[" + type + ":" + _value + "]";
+        return "[" + type + "| value:" + _value + "]";
     else 
         return "[" + type + "]";
 }

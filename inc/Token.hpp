@@ -7,7 +7,7 @@
 
 
 enum TokenType {
-    undifined, t_int, t_float, t_plus, t_minus, t_mul, t_div, t_lparen, t_rparen
+    undifined, t_int, t_float, t_plus, t_minus, t_mul, t_div, t_lparen, t_rparen, t_semicolon
 };
 
 class Token {

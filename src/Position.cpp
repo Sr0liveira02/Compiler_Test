@@ -30,9 +30,9 @@ Position* Position::copy() {
 }
 
 void Position::write_error_here(int offset) {
-    int lastLine = _i - 1;
+    int lastLine = _i;
     char last = _fileText[lastLine];
-    int nextLine = _i + 1;
+    int nextLine = _i;
     char next = _fileText[nextLine];
     while(last != '\n' && lastLine != 0) {
         lastLine--;

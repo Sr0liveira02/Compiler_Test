@@ -10,5 +10,7 @@
 #include "ParsingNode.hpp"
 #include "Parser.hpp"
 #include "Position.hpp"
+#include "Interpereter.hpp"
+#include "Number.hpp"
 
 #endif

@@ -68,6 +68,10 @@ void Lexer::make_tokens() {
                 _tokens.push_back(Token(t_rparen, '\0', _pos.copy()));
                 advance();
                 break;
+            case ';':
+                _tokens.push_back(Token(t_semicolon, '\0', _pos.copy()));
+                advance();
+                break;
             default:
                 if('0' <= _current_char && _current_char <= '9') {
                     _tokens.push_back(make_number());
