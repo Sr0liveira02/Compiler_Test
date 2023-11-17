@@ -8,7 +8,6 @@ Node::Node(NodeType type, std::string value, Node *lNode, Node *rNode, Position*
         case bo_minus:
         case bo_mul:
         case bo_div:
-        case bo_leftover:
             _lNode = lNode;
             _rNode = rNode;
             _value = "\0";
@@ -67,8 +66,6 @@ std::string Node::toString() {
             return "[" + _lNode->toString() + " * " + _rNode->toString() + "]";
         case bo_div:
             return "[" + _lNode->toString() + " / " + _rNode->toString() + "]";
-        case bo_leftover:
-            return "[" + _lNode->toString() + " % " + _rNode->toString() + "]";
         case n_float:
         case n_int:
             return _value;

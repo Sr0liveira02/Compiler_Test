@@ -12,13 +12,13 @@ int main() {
         // generate Tokens
         Lexer lexer = Lexer("<stdin>", input);
         lexer.make_tokens();
-        lexer.print_tokens();
-        printf("\n");
+        //lexer.print_tokens();
+        //printf("\n");
 
         // Generate Parsing Tree
         Parser parser = Parser(&lexer._tokens);
         Node *node = parser.parse();
-        std::cout << node->toString() << "\n";
+        //std::cout << node->toString() << "\n";
 
         // Interpreting 
         Interpreter inti = Interpreter();
