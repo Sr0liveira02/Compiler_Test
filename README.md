@@ -1,5 +1,5 @@
-This was an experiment where i staerted building a compiler based on a series created by CodePulse
-https://www.youtube.com/watch?v=Eythq9848Fg&list=PLZQftyCk7_SdoVexSmwy_tBgs7P0b97yD&index=1
+This was an experiment where i staerted building a compiler based on a series created by [CodePulse]
+(https://www.youtube.com/watch?v=Eythq9848Fg&list=PLZQftyCk7_SdoVexSmwy_tBgs7P0b97yD&index=1)
 where i built it in c++ and stopped it momentarely.
 
 i will be trying to iterate over it making it faster and more adapted to my liking and trying some other random stuff
@@ -10,9 +10,13 @@ All the props to CodePulse for providing such a helpfull and educative series
 
 - To use it for yourself
 
+```bash
 make (with g++ installed)
+```
 
+```bash
 ./Shell
+```
 
 In this version it only does math althougth in the future if i ever comeback to this i will be adding code.
 
